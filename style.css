@@ -94,7 +94,7 @@ button:active {
     color: #fff;
 }
 
-/* Large mobile devices */
+/* mobile devices */
 @media (max-width: 500px) {
     * {
         font-size: 1.3rem;
@@ -114,20 +114,5 @@ button:active {
     }
     .w-3 {
         width: 60vw;
-    }
-}
-/* Small mobiles */
-@media (max-width: 400px) {
-    .calculator {
-        width: 92vw;
-    }
-    .w-1 {
-        width: 23vw;
-    }
-    .w-2 {
-        width: 46vw;
-    }
-    .w-3 {
-        width: 69vw;
     }
 }
