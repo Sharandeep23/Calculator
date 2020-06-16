@@ -12,20 +12,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #40e0d0; /* fallback for old browsers */
+    background: #fc00ff; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to right,
-        #ff0080,
-        #ff8c00,
-        #40e0d0
+        #00dbde,
+        #fc00ff
     ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
         to right,
-        #ff0080,
-        #ff8c00,
-        #40e0d0
+        #00dbde,
+        #fc00ff
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .calculator {
@@ -95,4 +92,28 @@ button:active {
     align-items: center;
     background-color: #000;
     color: #fff;
+}
+
+/* Making the website responsive */
+
+@media (max-width: 500px) {
+    * {
+        font-size: 1.3rem;
+    }
+    .row {
+        height: 70px;
+    }
+    .calculator {
+        width: 280px;
+        height: 420px;
+    }
+    .w-1 {
+        width: 70px;
+    }
+    .w-2 {
+        width: 140px;
+    }
+    .w-3 {
+        width: 210px;
+    }
 }
