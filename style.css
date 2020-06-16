@@ -94,8 +94,7 @@ button:active {
     color: #fff;
 }
 
-/* Making the website responsive */
-
+/* Large mobile devices */
 @media (max-width: 500px) {
     * {
         font-size: 1.3rem;
@@ -104,16 +103,31 @@ button:active {
         height: 80px;
     }
     .calculator {
-        width: 280px;
+        width: 80vw;
         height: 480px;
     }
     .w-1 {
-        width: 70px;
+        width: 20vw;
     }
     .w-2 {
-        width: 140px;
+        width: 40vw;
     }
     .w-3 {
-        width: 210px;
+        width: 60vw;
+    }
+}
+/* Small mobiles */
+@media (max-width: 400px) {
+    .calculator {
+        width: 92vw;
+    }
+    .w-1 {
+        width: 23vw;
+    }
+    .w-2 {
+        width: 46vw;
+    }
+    .w-3 {
+        width: 69vw;
     }
 }
