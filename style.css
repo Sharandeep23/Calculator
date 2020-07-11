@@ -6,7 +6,6 @@
 
 body {
     margin: 0;
-    padding: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -25,35 +24,54 @@ body {
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.calculator {
-    width: 400px;
-    height: 600px;
+.calculator-grid {
+    max-height: 600px;
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
-button {
-    background-color: #d8d9db;
-    border: none;
-    border-left: 1px solid black;
+#result {
+    grid-column: span 4;
+    padding: 1.2em;
+    padding-right: 1em;
+    min-width: 90px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #000;
+    color: #fff;
 }
 
-button:focus {
-    outline: none;
+.span-2 {
+    grid-column: span 2;
 }
-button:hover {
+
+.span-3 {
+    grid-column: span 3;
+}
+
+.btn,
+.operator {
+    padding: 1.2em;
+    min-width: 90px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    background-color: #eaecf0;
-}
-
-button:active {
-    background-color: #bbbcbe;
+    border: 1px solid hsla(0, 0%, 0%, 0.075);
+    outline: none;
 }
 
 .operator {
     color: #fff;
-    background-color: #df984c;
+    background-color: #df984ce0;
 }
 
-.operator:hover {
+.operator:hover,
+.operator:focus {
     background-color: #e9a965;
 }
 
@@ -61,58 +79,11 @@ button:active {
     background-color: #dd8d37;
 }
 
-.row {
-    margin: 0;
-    display: flex;
-    height: 100px;
-    border-bottom: 2px solid black;
+.btn:focus,
+.btn:hover {
+    background-color: #eaecf0e8;
 }
 
-.row:last-of-type {
-    border: none;
-}
-
-.w-1 {
-    width: 100px;
-}
-.w-2 {
-    width: 200px;
-}
-.w-3 {
-    width: 300px;
-}
-
-.no-left-border {
-    border-left: none;
-}
-
-.row-1 {
-    justify-content: flex-end;
-    padding-right: 1.5rem;
-    align-items: center;
-    background-color: #000;
-    color: #fff;
-}
-
-/* mobile devices */
-@media (max-width: 500px) {
-    * {
-        font-size: 1.3rem;
-    }
-    .row {
-        height: 80px;
-    }
-    .calculator {
-        width: 80vw;
-        height: 480px;
-    }
-    .w-1 {
-        width: 20vw;
-    }
-    .w-2 {
-        width: 40vw;
-    }
-    .w-3 {
-        width: 60vw;
-    }
+.btn:active {
+    background-color: #bbbcbe;
 }

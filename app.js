@@ -1,21 +1,29 @@
 const calculator = document.querySelector(".calculator");
 const result = document.querySelector(".result");
+const numbers = [];
 
 // Leveraging Event Bubbling
 calculator.addEventListener("click", function (e) {
     if (e.target.tagName === "BUTTON") {
         const sign = e.target.innerText;
         if (
-            sign === "×" ||
-            sign === "–" ||
-            sign === "÷" ||
-            sign === "+" ||
-            sign === "="
+            (sign === "×" || sign === "–" || sign === "÷" || sign === "+") &&
+            result.innerText !== "0"
         ) {
-            // Calculaton Part
             switch (sign) {
                 case "+":
+                    numbers.push(Number(result.innerText));
+                    break;
+                case "–":
+                    numbers.push(Number(result.innerText), "–");
+                    break;
+                case "×":
+                    numbers.push(Number(result.innerText), "×");
+                    break;
+                case "÷":
+                    numbers.push(Number(result.innerText), "÷");
             }
+        } else if (sign === "=") {
         } else if (sign === "C" || sign === "DEL") {
             // Clearing Part
             if (sign === "C") {
