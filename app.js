@@ -1,50 +1,53 @@
-const calculator = document.querySelector(".calculator");
-const result = document.querySelector(".result");
-const numbers = [];
+const screen = document.getElementById("result");
+let buffer = "0";
 
-// Leveraging Event Bubbling
-calculator.addEventListener("click", function (e) {
-    if (e.target.tagName === "BUTTON") {
-        const sign = e.target.innerText;
-        if (
-            (sign === "×" || sign === "–" || sign === "÷" || sign === "+") &&
-            result.innerText !== "0"
-        ) {
-            switch (sign) {
-                case "+":
-                    numbers.push(Number(result.innerText));
-                    break;
-                case "–":
-                    numbers.push(Number(result.innerText), "–");
-                    break;
-                case "×":
-                    numbers.push(Number(result.innerText), "×");
-                    break;
-                case "÷":
-                    numbers.push(Number(result.innerText), "÷");
-            }
-        } else if (sign === "=") {
-        } else if (sign === "C" || sign === "DEL") {
-            // Clearing Part
-            if (sign === "C") {
-                result.innerText = "0";
-            } else {
-                const resultArray = result.innerText.split("");
-                resultArray.pop();
-                result.innerText = resultArray.join("");
-            }
-        } else {
-            // Numbers
-            if (result.innerText === "0") {
-                result.innerText = sign;
-            } else {
-                if (result.innerText.length < 16) {
-                    result.innerText += sign;
-                } else {
-                    alert("MAX LENGTH REACHED!");
-                }
-            }
-        }
-    }
-    e.stopPropagation();
+document.querySelector(".calculator-grid").addEventListener("click", (e) => {
+    handleClick(e.target.textContent);
 });
+
+function handleClick(value) {
+    if (!isNaN(value)) {
+        handleNumber(value);
+    } else {
+        handleSymbol(value);
+    }
+}
+
+function handleNumber(value) {
+    if (buffer === "0") {
+        buffer = value;
+    } else {
+        buffer += value;
+    }
+    rerender(buffer);
+}
+
+function handleSymbol(value) {
+    switch (value) {
+        case "C":
+            clear();
+            break;
+        case "←":
+            remove();
+            break;
+    }
+}
+
+function rerender(value) {
+    screen.textContent = value;
+}
+
+function clear() {
+    buffer = "0";
+    rerender(buffer);
+}
+
+function remove() {
+    let bufferArray = buffer.split("");
+    bufferArray.pop();
+    if (bufferArray.length === 0) {
+        bufferArray.push(0);
+    }
+    buffer = bufferArray.join("");
+    rerender(buffer);
+}
